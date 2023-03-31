@@ -115,6 +115,7 @@
         kevan-bootstrap = import ./darwin/bootstrap.nix;
         /* kevan-default = ./darwin/default.nix; */
         kevan-general = import ./darwin/general.nix;
+        kevan-gpg = import ./darwin/gpg.nix;
 
         users-primaryUser = import ./modules/user.nix;
         /* kevan-homebrew = ./darwin/homebrew.nix; */
@@ -160,12 +161,13 @@
 
         /* Wismas-MacBook-Pro = makeOverridable darwin.lib.darwinSystem { */
         # Wismas-MacBook-Pro = makeOverridable self.lib.mkDarwinSystem (primaryUserDefault // {
-        Wismas-MacBook-Pro = makeOverridable malob.lib.mkDarwinSystem (primaryUserDefault // {
-          system = "x86_64-darwin";
+        eFishery = makeOverridable malob.lib.mkDarwinSystem (primaryUserDefault // {
+          # system = "x86_64-darwin";
+          system = "aarch64-darwin";
           modules = attrValues self.darwinModules ++ singleton {
             nixpkgs = nixpkgsDefault;
-            networking.computerName = "Wisma’s 💻";
-            networking.hostName = "Wismas-MacBook-Pro";
+            networking.computerName = "eFishery’s 💻";
+            networking.hostName = "eFishery";
             networking.knownNetworkServices = [
               "Wi-Fi"
               "USB 10/100/1000 LAN"

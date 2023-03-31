@@ -18,6 +18,18 @@
   homebrew.casks = [
     "1password"
     "1password-cli"
+    "raycast"
+    "google-chrome"
+    "cleanshot"
+    "topnotch"
+    "figma"
+    "spotify"
+    "arc"
+    "openvpn-connect"
+    "notion"
+    "zed"
+    "readdle-spark"
+    # "gpg-suite"
   ];
   # Networking
   /* networking.dns = [ */
@@ -28,10 +40,10 @@
   # Apps
   # `home-manager` currently has issues adding them to `~/Applications`
   # Issue: https://github.com/nix-community/home-manager/issues/1341
-  /* environment.systemPackages = with pkgs; [ */
-  /*   kitty */
-  /*   terminal-notifier */
-  /* ]; */
+  environment.systemPackages = with pkgs; [
+    #  kitty
+     terminal-notifier
+   ];
   programs.nix-index.enable = true;
 
   # Fonts
@@ -41,7 +53,7 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
-  system.defaults.dock.autohide = false;
+  system.defaults.dock.autohide = true;
 
   # Keyboard
   system.keyboard.enableKeyMapping = true;

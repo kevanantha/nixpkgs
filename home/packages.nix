@@ -34,7 +34,7 @@
     updateNixIndexDB = lib.hm.dag.entryAfter [ "writeBoundary" ] (lib.optionalString (config.programs.nix-index.enable) ''
       filename="index-x86_64-$(uname | tr A-Z a-z)"
       cacheNixIndex="$HOME/.cache/nix-index"
-      if [ ! -d "$cacheNixIndex"]; then 
+      if [ ! -d "$cacheNixIndex"]; then
         mkdir -p $cacheNixIndex
       fi
       cd $cacheNixIndex
@@ -169,6 +169,15 @@
   /*   }; */
   /* }; */
 
+  # creating file with contents, that file will stored in nix-store
+  # then symlink to homeDirectory.
+  home.file.".gnupg/gpg-agent.conf".source = pkgs.writeTextFile {
+    name = "home-gpg-agent.conf";
+    text = lib.optionalString (pkgs.stdenv.isDarwin) ''
+      pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
+    '';
+  };
+
   programs.bottom.enable = true;
   programs.bottom.package = pkgs.bottom;
 
@@ -201,6 +210,9 @@
     home-manager
     /* spotify */
     postman
+
+    # gnupg GUI
+    gpa
 
     /* _1password-gui */
     /* _1password */

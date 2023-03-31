@@ -15,7 +15,7 @@
         "kevanantha.cachix.org-1:fgi0EBYafgTX8c4ENp9ZP4tAf3HmDLUWOfB9jGDqBAo="
       ];
 
-      trusted-users = [ "@admin" ];
+      trusted-users = [ "root" "kevan" "@admin" ];
 
       # https://github.com/NixOS/nix/issues/7273
       auto-optimise-store = false;
