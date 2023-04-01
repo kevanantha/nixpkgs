@@ -4,9 +4,6 @@ let
   inherit (config.home.user-info) nixConfigDirectory;
 in
 {
-  # programs.nushell.enable = true;
-  # programs.nushell.package = pkgs.nushell;
-
   programs.zsh.oh-my-zsh.enable = true;
   programs.zsh.oh-my-zsh.plugins = [ "wd" "git" ];
 

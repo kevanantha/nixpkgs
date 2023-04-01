@@ -44,7 +44,7 @@
     in
     {
       # nix fmt
-      formatter.x86_64-darwin = nixpkgs-unstable.legacyPackages.x86_64-darwin.nixpkgs-fmt;
+      formatter.aarch64-darwin = nixpkgs-unstable.legacyPackages.aarch64-darwin.nixpkgs-fmt;
 
       # Add some additional functions to `lib`.
       /* lib = inputs.nixpkgs-unstable.lib.extend (_: _: { */
@@ -105,7 +105,6 @@
       # Modules
       darwinModules = {
         kevan-bootstrap = import ./darwin/bootstrap.nix;
-        /* kevan-default = ./darwin/default.nix; */
         kevan-general = import ./darwin/general.nix;
         kevan-gpg = import ./darwin/gpg.nix;
         kevan-homebrew = ./darwin/homebrew.nix;

@@ -122,7 +122,7 @@
     # nushell
     cachix
 
-    # oh-my-zsh
+    wezterm
     fd
     ripgrep
   ];

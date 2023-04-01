@@ -84,7 +84,7 @@ in
     gh = {
       enable = true;
       settings.git_protocol = "ssh";
-      settings.aliases = {};
+      settings.aliases = { };
     };
   };
 }
