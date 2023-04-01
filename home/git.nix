@@ -55,6 +55,14 @@ in
           condition = "gitdir:~/.config/nixpkgs";
           contents.user = kevan;
         }
+        {
+          condition = "gitdir:~/l";
+          contents.user = kevan;
+        }
+        {
+          condition = "gitdir:~/p";
+          contents.user = kevan;
+        }
       ];
       delta = {
         enable = true;

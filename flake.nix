@@ -26,17 +26,11 @@
     let
       inherit (nixpkgs-unstable.lib) attrValues makeOverridable optionalAttrs singleton;
 
-      flakeContext = {
-        inherit inputs;
-      };
-
       homeStateVersion = "23.05";
 
       nixpkgsDefault = {
         config = {
           allowUnfree = true;
-          /* allowBroken = true; */
-          /* allowAliases = true; */
         };
         overlays = attrValues self.overlays;
       };
@@ -110,15 +104,13 @@
 
       # Modules
       darwinModules = {
-        /* home-manager = home-manager.darwinModules.home-manager; */
-
         kevan-bootstrap = import ./darwin/bootstrap.nix;
         /* kevan-default = ./darwin/default.nix; */
         kevan-general = import ./darwin/general.nix;
         kevan-gpg = import ./darwin/gpg.nix;
+        kevan-homebrew = ./darwin/homebrew.nix;
 
         users-primaryUser = import ./modules/user.nix;
-        /* kevan-homebrew = ./darwin/homebrew.nix; */
       };
 
       homeManagerModules = {
@@ -126,6 +118,8 @@
         kevan-git = import ./home/git.nix;
         kevan-packages = import ./home/packages.nix;
         kevan-shell = import ./home/shell.nix;
+        kevan-alacritty = import ./home/alacritty.nix;
+        kevan-starship = import ./home/starship.nix;
         /* kevan-colors = import ./home/colors.nix; */
         /* kevan-config-files = import ./home/config-files.nix; */
         /* kevan-fish = import ./home/fish.nix; */
@@ -159,15 +153,12 @@
           system = "aarch64-darwin";
         };
 
-        /* Wismas-MacBook-Pro = makeOverridable darwin.lib.darwinSystem { */
-        # Wismas-MacBook-Pro = makeOverridable self.lib.mkDarwinSystem (primaryUserDefault // {
-        eFishery = makeOverridable malob.lib.mkDarwinSystem (primaryUserDefault // {
-          # system = "x86_64-darwin";
+        kevan = makeOverridable malob.lib.mkDarwinSystem (primaryUserDefault // {
           system = "aarch64-darwin";
           modules = attrValues self.darwinModules ++ singleton {
             nixpkgs = nixpkgsDefault;
-            networking.computerName = "eFishery’s 💻";
-            networking.hostName = "eFishery";
+            networking.computerName = "kevan’s 💻";
+            networking.hostName = "kevan";
             networking.knownNetworkServices = [
               "Wi-Fi"
               "USB 10/100/1000 LAN"
@@ -177,44 +168,6 @@
           inherit homeStateVersion;
           homeModules = attrValues self.homeManagerModules;
         });
-
-        /* Wismas-MacBook-Pro = bootstrap-x86.override { */
-        /*   #system = "x86_64-darwin"; */
-        /*   modules = attrValues self.darwinModules ++ [ */
-        /*     { users.primaryUser = primaryUserDefault; } */
-        /*   ] ++ [ */
-        /*     home-manager.darwinModules.home-manager */
-        /*     ( */
-        /*       { config, pkgs, ... }: */
-        /*       let */
-        /*         inherit (config.users) primaryUser; */
-        /*       in */
-        /*       { */
-        /*         nixpkgs = nixpkgsDefault; */
-        /**/
-        /*         # Hack to support legacy worklows that use `<nixpkgs>` etc. */
-        /*         nix.nixPath = { nixpkgs = "${inputs.nixpkgs-unstable}"; }; */
-        /**/
-        /*         # `home-manager` config */
-        /*         users.users.${primaryUser.username} = { */
-        /*           home = "/Users/${primaryUser.username}"; */
-        /*           shell = pkgs.zsh; */
-        /*         }; */
-        /**/
-        /*         home-manager.useGlobalPkgs = true; */
-        /*         home-manager.users.${primaryUser.username} = { */
-        /*           imports = attrValues self.homeManagerModules; */
-        /*           home.stateVersion = homeStateVersion; */
-        /*           #home.user-info = config.users.primaryUser; */
-        /*           #home.user-info = primaryUser; */
-        /*         }; */
-        /*         nix.registry.my.flake = inputs.self; */
-        /*       } */
-        /*     ) */
-        /*   ]; */
-        /*   #inherit homeStateVersion; */
-        /*   #homeModules = attrValues self.homeManagerModules; */
-        /* }; */
       };
     } // flake-utils.lib.eachDefaultSystem (system: {
       # Re-export `nixpkgs-unstable` with overlays.

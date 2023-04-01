@@ -9,7 +9,6 @@ in
 
   programs.zsh.oh-my-zsh.enable = true;
   programs.zsh.oh-my-zsh.plugins = [ "wd" "git" ];
-  # programs.zsh.oh-my-zsh.package = pkgs.oh-my-zsh;
 
   programs.zsh.enable = true;
   programs.zsh.plugins = [
@@ -35,8 +34,10 @@ in
     }
   ];
   programs.zsh.shellAliases = with pkgs; {
-    # ls = "${exa}/bin/exa --long --header --classify --git --color=always --icons";
+    # nb = "nix build ${nixConfigDirectory}#darwinConfigurations.\"${config.home.hostname}\".system";
+    drs = "darwin-rebuild switch --flake ${nixConfigDirectory}";
     nd = "nix develop";
+    nb = "nix build";
     hm = "home-manager";
     pn = "pnpm";
     ld = "lazydocker";
@@ -60,7 +61,6 @@ in
     d = "docker";
     #  k='kubectl'
     dc = "docker compose";
-    # ls = "exa --long --header --classify --git --color=always --icons";
     cat = "bat --theme=Dracula";
     #  find='fd'
     top = "btm";
