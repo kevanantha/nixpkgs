@@ -13,8 +13,15 @@
   environment.systemPackages = with pkgs; [
     #  kitty
     terminal-notifier
+    darwin.cf-private
+    darwin.apple_sdk.frameworks.CoreServices
+    # darwin.apple_sdk.frameworks
+    libiconv
+    stdenv
   ];
   programs.nix-index.enable = true;
+
+  # programs.nix-ld.enable = true;
 
   # Fonts
   fonts.fontDir.enable = true;

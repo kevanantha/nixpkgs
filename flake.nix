@@ -173,5 +173,25 @@
       # This is handy in combination with setting `nix.registry.my.flake = inputs.self`.
       # Allows doing things like `nix run my#prefmanager -- watch --all`
       legacyPackages = import inputs.nixpkgs-unstable (nixpkgsDefault // { inherit system; });
+
+      # Development shells ----------------------------------------------------------------------{{{
+      # Shell environments for development
+      # With `nix.registry.my.flake = inputs.self`, development shells can be created by running,
+      # e.g., `nix develop my#node`. 
+
+      devShells = let pkgs = self.legacyPackages.${system}; in
+        import ./devShells.nix { inherit pkgs; inherit (inputs.nixpkgs-unstable) lib; } // {
+
+          # `nix develop my`.
+          default = pkgs.mkShell {
+            name = "kevan_devshells_default";
+            # shellHook = '''' + checks.pre-commit-check.shellHook;
+            # buildInputs = checks.pre-commit-check.buildInputs or [ ];
+            # packages = checks.pre-commit-check.packages or [ ];
+          };
+
+        };
+
+      # }}}
     });
 }

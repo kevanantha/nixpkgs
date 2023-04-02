@@ -4,6 +4,7 @@
   # Nix configuration ------------------------------------------------------------------------------
 
   nix = {
+    configureBuildUsers = true;
     settings = {
       substituters = [
         "https://cache.komunix.org"
@@ -15,7 +16,7 @@
         "kevanantha.cachix.org-1:fgi0EBYafgTX8c4ENp9ZP4tAf3HmDLUWOfB9jGDqBAo="
       ];
 
-      trusted-users = [ "root" "kevan" "@admin" ];
+      trusted-users = [ "kevan" "@admin" ];
 
       # https://github.com/NixOS/nix/issues/7273
       auto-optimise-store = false;
@@ -39,8 +40,6 @@
     };
   };
 
-  nix.configureBuildUsers = true;
-
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
 
@@ -57,6 +56,7 @@
   # The option environment.variables.SHELL is no longer set automatically when,
   # eg. programs.zsh.enable is configured.
   environment.variables.SHELL = "${pkgs.zsh}/bin/zsh";
+  environment.variables.CC = "${pkgs.gcc}/bin/gcc";
 
   # Install and setup ZSH to work with nix(-darwin) as well
   programs.zsh.enable = true;

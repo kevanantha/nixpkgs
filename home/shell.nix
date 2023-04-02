@@ -37,7 +37,7 @@ in
     nb = "nix build";
     hm = "home-manager";
     pn = "pnpm";
-    ld = "lazydocker";
+    # ld = "lazydocker";
     tks = "tmux kill-session";
     zshconfig = "nvim ~/.zshrc";
     ohmyzsh = "nvim ~/.oh-my-zsh";

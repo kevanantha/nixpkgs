@@ -93,6 +93,9 @@
   programs.jq.package = pkgs.jq;
 
   home.packages = with pkgs; [
+    coreutils
+    wget
+
     neovim
     tmuxinator
     tmux
@@ -108,9 +111,11 @@
     qemu
     home-manager
     postman
+    neofetch
 
     # gnupg GUI
     gpa
+    gcc
 
     dbeaver
     jetbrains.goland
@@ -125,5 +130,18 @@
     wezterm
     fd
     ripgrep
-  ];
+  ] ++ lib.optionals
+    stdenv.isDarwin
+    [
+      mas
+      # xbar
+      rectangle
+      cocoapods
+      m-cli # useful macOS CLI commands
+      xcode-install
+      # telegram
+      # iriun-webcam
+      # clipy
+      # googlechrome
+    ];
 }

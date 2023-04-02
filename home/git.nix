@@ -20,7 +20,6 @@ in
       userName = "${kevan.name}";
       userEmail = "${kevan.email}";
       signing.key = "${kevan.signingKey}";
-      # signing.gpgPath = "${pkgs.gnupg}/bin/gpg";
       signing.gpgPath = "gpg";
       ignores = [
         ".DS_Store"
