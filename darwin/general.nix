@@ -15,9 +15,12 @@
     terminal-notifier
     darwin.cf-private
     darwin.apple_sdk.frameworks.CoreServices
+    # darwin.apple_sdk.frameworks.CoreFoundation
+    # darwin.apple_sdk.frameworks.Security
     # darwin.apple_sdk.frameworks
     libiconv
     stdenv
+    # zlib
   ];
   programs.nix-index.enable = true;
 

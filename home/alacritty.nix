@@ -8,7 +8,8 @@
       TERM = "xterm-256color";
     };
     window = {
-      opacity = 0.9;
+      # opacity = 0.9;
+      opacity = 1;
       dimension = {
         columns = 0;
         lines = 0;

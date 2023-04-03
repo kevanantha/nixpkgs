@@ -17,10 +17,10 @@ in
   programs = {
     git = {
       enable = true;
-      userName = "${kevan.name}";
-      userEmail = "${kevan.email}";
-      signing.key = "${kevan.signingKey}";
-      signing.gpgPath = "gpg";
+      # userName = "${kevan.name}";
+      # userEmail = "${kevan.email}";
+      # signing.key = "${kevan.signingKey}";
+      # signing.gpgPath = "gpg";
       ignores = [
         ".DS_Store"
       ];
@@ -34,7 +34,7 @@ in
         gpg.program = "gpg";
         gpg.format = "openpgp";
         commit.gpgsign = true;
-        pull.ff = "only";
+        # pull.ff = "only";
         pull.rebase = true;
         url = {
           "git@bitbucket.org:" = {
@@ -47,19 +47,19 @@ in
       };
       includes = [
         {
-          condition = "gitdir:~/w";
+          condition = "gitdir:~/w/";
           contents.user = eFishery;
         }
         {
-          condition = "gitdir:~/.config/nixpkgs";
+          condition = "gitdir:~/.config/nixpkgs/";
           contents.user = kevan;
         }
         {
-          condition = "gitdir:~/l";
+          condition = "gitdir:~/l/";
           contents.user = kevan;
         }
         {
-          condition = "gitdir:~/p";
+          condition = "gitdir:~/p/";
           contents.user = kevan;
         }
       ];

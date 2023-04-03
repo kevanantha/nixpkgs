@@ -32,5 +32,6 @@
     "mimestream"
     "obsidian"
     "clickup"
+    "cron"
   ];
 }
