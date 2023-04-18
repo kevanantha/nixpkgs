@@ -36,5 +36,6 @@
     "podman-desktop"
     "flipper"
     "warp"
+    "espanso"
   ];
 }
