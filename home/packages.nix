@@ -108,6 +108,7 @@
 
     comma
     colima
+    podman
     qemu
     home-manager
     postman

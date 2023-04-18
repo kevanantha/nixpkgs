@@ -30,23 +30,42 @@
     };
     font = {
       normal = {
-        family = "JetBrainsMono Nerd Font";
-        style = "Medium";
+        family = "MonoLisa";
+        style = "Regular";
       };
       bold = {
-        family = "JetBrainsMono Nerd Font";
+        family = "MonoLisa";
         style = "Bold";
       };
       italic = {
-        family = "JetBrainsMono Nerd Font";
+        family = "MonoLisa";
         style = "Bold Italic";
       };
-      size = 13.0;
+      size = 12.0;
       offset = {
         x = 0;
         y = 2;
       };
     };
+    # font = {
+    #   normal = {
+    #     family = "JetBrainsMono Nerd Font";
+    #     style = "Medium";
+    #   };
+    #   bold = {
+    #     family = "JetBrainsMono Nerd Font";
+    #     style = "Bold";
+    #   };
+    #   italic = {
+    #     family = "JetBrainsMono Nerd Font";
+    #     style = "Bold Italic";
+    #   };
+    #   size = 13.0;
+    #   offset = {
+    #     x = 0;
+    #     y = 2;
+    #   };
+    # };
     colors = {
       primary = {
         background = "#1a1b26";

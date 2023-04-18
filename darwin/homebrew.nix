@@ -32,6 +32,9 @@
     "mimestream"
     "obsidian"
     "clickup"
-    "cron"
+    # "cron"
+    "podman-desktop"
+    "flipper"
+    "warp"
   ];
 }
