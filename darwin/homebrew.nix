@@ -37,5 +37,6 @@
     "flipper"
     "warp"
     "espanso"
+    "whatsapp"
   ];
 }
