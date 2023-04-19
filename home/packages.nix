@@ -2,7 +2,7 @@
 
 {
   programs.home-manager.enable = true;
-
+  programs.neovim.defaultEditor = true;
 
   home.activation = {
     copyApplications =
@@ -109,7 +109,8 @@
 
     comma
     colima
-    podman
+    docker
+    # podman
     qemu
     home-manager
     postman

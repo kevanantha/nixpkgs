@@ -57,6 +57,7 @@
   # eg. programs.zsh.enable is configured.
   environment.variables.SHELL = "${pkgs.zsh}/bin/zsh";
   environment.variables.CC = "${pkgs.gcc}/bin/gcc";
+  environment.variables.EDITOR = "${pkgs.neovim}/bin/nvim";
 
   # Install and setup ZSH to work with nix(-darwin) as well
   programs.zsh.enable = true;

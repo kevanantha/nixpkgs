@@ -33,7 +33,7 @@
     "obsidian"
     "clickup"
     # "cron"
-    "podman-desktop"
+    # "podman-desktop"
     "flipper"
     "warp"
     "espanso"
