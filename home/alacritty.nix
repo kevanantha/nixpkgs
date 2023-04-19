@@ -31,7 +31,7 @@
     font = {
       normal = {
         family = "MonoLisa";
-        style = "Regular";
+        style = "Book";
       };
       bold = {
         family = "MonoLisa";
