@@ -47,7 +47,7 @@ in
     c = "clear";
     /* gacp='echo "What is the commit message mate?" && read MSG && git add . && git commit -m "$MSG" && ggp' */
     /* bitpr='echo "What branch?" && read MSG && open "https://bitbucket.org/mid-kelola-indonesia/talenta-core/pull-requests/new?source=$MSG&t=1" -a "Arc"' */
-    /* pobsi="wd obsi && git add . && git commit -m "docs: update" && ggp" */
+    pobsi="wd obsi && git add . && git commit -m 'docs: update' && ggp";
     #  gac='echo "What is the commit message mate?" && read MSG && git add . && git commit -m "$MSG"'
     gac = "gaa && gc";
     gglm = "git pull origin master --rebase=false";
@@ -58,7 +58,7 @@ in
     d = "docker";
     #  k='kubectl'
     dc = "docker compose";
-    cat = "bat --theme=Dracula";
+    cat = "bat";
     #  find='fd'
     top = "btm";
     #  gd='git diff --color | delta | cat'
@@ -70,7 +70,7 @@ in
     bs = "brew services";
     /* killport='echo "What port?" && read PORT && kill -9 $(lsof -ti tcp:$PORT) && echo "DONE BRO!"' */
     tx = "tmuxinator";
-    sl = "pmset sleepnow";
+    # sl = "pmset sleepnow";
     ws = "webstorm";
   };
 }

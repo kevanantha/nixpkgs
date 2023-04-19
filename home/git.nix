@@ -62,6 +62,10 @@ in
           condition = "gitdir:~/p/";
           contents.user = kevan;
         }
+        {
+          condition = "gitdir:~/b/";
+          contents.user = kevan;
+        }
       ];
       delta = {
         enable = true;

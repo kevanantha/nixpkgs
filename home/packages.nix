@@ -52,7 +52,7 @@
   programs.bat.enable = true;
   programs.bat.config = {
     style = "plain";
-    theme = "TwoDark";
+    theme = "Dracula";
   };
 
   # https://direnv.net
