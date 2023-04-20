@@ -17,11 +17,13 @@ in
   programs = {
     git = {
       enable = true;
-      # userName = "${kevan.name}";
-      # userEmail = "${kevan.email}";
-      # signing.key = "${kevan.signingKey}";
-      # signing.gpgPath = "gpg";
-      ignores = [
+      userName = "${kevan.name}";
+      userEmail = "${kevan.email}";
+      signing.key = "${kevan.signingKey}";
+      signing.gpgPath = "gpg";
+       ignores = [
+        "*~"
+        "*.swp"
         ".DS_Store"
       ];
       extraConfig = {
@@ -49,22 +51,6 @@ in
         {
           condition = "gitdir:~/w/";
           contents.user = eFishery;
-        }
-        {
-          condition = "gitdir:~/.config/nixpkgs/";
-          contents.user = kevan;
-        }
-        {
-          condition = "gitdir:~/l/";
-          contents.user = kevan;
-        }
-        {
-          condition = "gitdir:~/p/";
-          contents.user = kevan;
-        }
-        {
-          condition = "gitdir:~/b/";
-          contents.user = kevan;
         }
       ];
       delta = {
