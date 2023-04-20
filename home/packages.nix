@@ -107,6 +107,9 @@
     discord
     teams
 
+    deno
+    go
+
     comma
     colima
     docker
