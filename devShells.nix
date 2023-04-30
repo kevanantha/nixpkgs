@@ -96,7 +96,16 @@ rec {
   # `nix develop my#node` 
   node = mkNodejs {
     inherit nodejs;
-    withNodePackages = p: [ p.yarn ];
+    withNodePackages = p: [
+      p.yarn
+      (p.pnpm.override {
+        version = "7.14.2";
+        src = pkgs.fetchurl {
+          url = "https://registry.npmjs.org/pnpm/-/pnpm-7.14.2.tgz";
+          sha512 = "NSxrIaRW07jFQQ1fPFFOA8eMfuogsMeygOKd3zaFgyJBdo1oh61jl2JjWc+w0XNzWIMG7/v9HK7nP8RTL5NO3g==";
+        };
+      })
+    ];
   };
 
   # `nix develop my#node14` 
@@ -106,6 +115,22 @@ rec {
       p.yarn
     ];
     buildInputs = [ python3 ];
+  };
+
+  # `nix develop my#pnpm` 
+  pnpm = mkNodejs {
+    nodejs = nodejs-18_x;
+    withNodePackages = p: [
+      (p.pnpm.override {
+        version = "7.14.2";
+        src = pkgs.fetchurl {
+          url = "https://registry.npmjs.org/pnpm/-/pnpm-7.14.2.tgz";
+          sha512 = "NSxrIaRW07jFQQ1fPFFOA8eMfuogsMeygOKd3zaFgyJBdo1oh61jl2JjWc+w0XNzWIMG7/v9HK7nP8RTL5NO3g==";
+        };
+      })
+
+    ];
+    buildInputs = [ python3 pkg-config ];
   };
 
   # `nix develop my#eFnode` 

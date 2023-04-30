@@ -32,6 +32,7 @@ in
   ];
   programs.zsh.shellAliases = with pkgs; {
     # nb = "nix build ${nixConfigDirectory}#darwinConfigurations.\"${config.home.hostname}\".system";
+    xnode = "nix develop ${nixConfigDirectory}/.\#node";
     drs = "darwin-rebuild switch --flake ${nixConfigDirectory}";
     nd = "nix develop";
     nb = "nix build";
@@ -47,7 +48,7 @@ in
     c = "clear";
     /* gacp='echo "What is the commit message mate?" && read MSG && git add . && git commit -m "$MSG" && ggp' */
     /* bitpr='echo "What branch?" && read MSG && open "https://bitbucket.org/mid-kelola-indonesia/talenta-core/pull-requests/new?source=$MSG&t=1" -a "Arc"' */
-    pobsi="wd obsi && git add . && git commit -m 'docs: update' && ggp";
+    pobsi = "wd obsi && git add . && git commit -m 'docs: update' && ggp";
     #  gac='echo "What is the commit message mate?" && read MSG && git add . && git commit -m "$MSG"'
     gac = "gaa && gc";
     gglm = "git pull origin master --rebase=false";

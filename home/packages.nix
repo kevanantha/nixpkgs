@@ -60,6 +60,9 @@
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
 
+  programs.go.enable = true;
+  programs.go.package = pkgs.go;
+
   programs.vscode.enable = true;
   programs.vscode.package = pkgs.vscode;
 
@@ -108,7 +111,10 @@
     teams
 
     deno
-    go
+    # go
+    gopls
+    # gotools
+    go-tools
 
     comma
     colima

@@ -38,5 +38,6 @@
     "warp"
     "espanso"
     "whatsapp"
+    "displaylink"
   ];
 }

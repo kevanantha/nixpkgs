@@ -113,7 +113,7 @@
       };
 
       homeManagerModules = {
-        # My configurations
+        # X configurations
         kevan-git = import ./home/git.nix;
         kevan-packages = import ./home/packages.nix;
         kevan-shell = import ./home/shell.nix;
@@ -162,7 +162,7 @@
               "Wi-Fi"
               "USB 10/100/1000 LAN"
             ];
-            nix.registry.my.flake = inputs.self;
+            nix.registry.x.flake = inputs.self;
           };
           inherit homeStateVersion;
           homeModules = attrValues self.homeManagerModules;
@@ -170,19 +170,19 @@
       };
     } // flake-utils.lib.eachDefaultSystem (system: {
       # Re-export `nixpkgs-unstable` with overlays.
-      # This is handy in combination with setting `nix.registry.my.flake = inputs.self`.
-      # Allows doing things like `nix run my#prefmanager -- watch --all`
+      # This is handy in combination with setting `nix.registry.x.flake = inputs.self`.
+      # Allows doing things like `nix run x#prefmanager -- watch --all`
       legacyPackages = import inputs.nixpkgs-unstable (nixpkgsDefault // { inherit system; });
 
       # Development shells ----------------------------------------------------------------------{{{
       # Shell environments for development
-      # With `nix.registry.my.flake = inputs.self`, development shells can be created by running,
-      # e.g., `nix develop my#node`. 
+      # With `nix.registry.x.flake = inputs.self`, development shells can be created by running,
+      # e.g., `nix develop x#node`. 
 
       devShells = let pkgs = self.legacyPackages.${system}; in
         import ./devShells.nix { inherit pkgs; inherit (inputs.nixpkgs-unstable) lib; } // {
 
-          # `nix develop my`.
+          # `nix develop x`.
           default = pkgs.mkShell {
             name = "kevan_devshells_default";
             # shellHook = '''' + checks.pre-commit-check.shellHook;

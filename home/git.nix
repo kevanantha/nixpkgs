@@ -21,7 +21,7 @@ in
       userEmail = "${kevan.email}";
       signing.key = "${kevan.signingKey}";
       signing.gpgPath = "gpg";
-       ignores = [
+      ignores = [
         "*~"
         "*.swp"
         ".DS_Store"
