@@ -28,7 +28,7 @@ let
 
   # this function for make nodejs development environments with includes
   # pnpm, yarn, and node.
-  mkNodejs = { nodejs, withNodePackages ? _: [ ], buildInputs ? [ ] }:
+  mkNodejs = { nodejs, withNodePackages ? _: [ ], buildInputs ? [ ], shellHook ? '''' }:
     let
       nodePackages = pkgs.nodePackages.override {
         inherit nodejs;
@@ -39,6 +39,7 @@ let
     pkgs.mkShell {
       inherit packages;
       inherit buildInputs;
+      inherit shellHook;
     };
 in
 
@@ -99,13 +100,18 @@ rec {
     withNodePackages = p: [
       p.yarn
       (p.pnpm.override {
-        version = "7.14.2";
+        version = "8.5.0";
         src = pkgs.fetchurl {
-          url = "https://registry.npmjs.org/pnpm/-/pnpm-7.14.2.tgz";
-          sha512 = "NSxrIaRW07jFQQ1fPFFOA8eMfuogsMeygOKd3zaFgyJBdo1oh61jl2JjWc+w0XNzWIMG7/v9HK7nP8RTL5NO3g==";
+          url = "https://registry.npmjs.org/pnpm/-/pnpm-8.5.0.tgz";
+          sha512 = "eGki4/2GIMFivfbKHIDo1mP1vFvMi39Mh9TxcBHZcFWj09zGzCYD04e05j/60sUkJ1yyzSAszkchBxp9PSL7Ew==";
         };
       })
     ];
+    shellHook = ''
+      echo "executing shellHook..."
+      echo "Nodejs version: ${nodejs}"
+      zsh
+    '';
   };
 
   # `nix develop my#node14` 

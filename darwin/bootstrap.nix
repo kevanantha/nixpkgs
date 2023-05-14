@@ -7,7 +7,7 @@
     configureBuildUsers = true;
     settings = {
       substituters = [
-        "https://cache.komunix.org"
+        # "https://cache.komunix.org"
         "https://cache.nixos.org/"
         "https://kevanantha.cachix.org"
       ];

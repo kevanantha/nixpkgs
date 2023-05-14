@@ -50,10 +50,10 @@
   # https://github.com/sharkdp/bat
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.bat.enable
   programs.bat.enable = true;
-  programs.bat.config = {
-    style = "plain";
-    theme = "Dracula";
-  };
+  # programs.bat.config = {
+  #   style = "plain";
+  #   theme = "Dracula";
+  # };
 
   # https://direnv.net
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.direnv.enable

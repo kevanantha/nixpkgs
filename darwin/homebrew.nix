@@ -39,5 +39,7 @@
     "espanso"
     "whatsapp"
     "displaylink"
+    "steam"
+    "orbstack" # Replacement for Docker Desktop
   ];
 }
