@@ -20,6 +20,7 @@
     "1password-cli"
     "raycast"
     "google-chrome"
+    "google-chrome-canary"
     "cleanshot"
     "topnotch"
     "figma"
@@ -41,5 +42,7 @@
     "displaylink"
     "steam"
     "orbstack" # Replacement for Docker Desktop
+    "linear-linear"
+    "anki"
   ];
 }

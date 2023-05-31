@@ -147,7 +147,6 @@
     [
       mas
       # xbar
-      rectangle
       cocoapods
       m-cli # useful macOS CLI commands
       xcode-install
