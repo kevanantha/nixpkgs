@@ -32,7 +32,7 @@ in
   ];
   programs.zsh.shellAliases = with pkgs; {
     # nb = "nix build ${nixConfigDirectory}#darwinConfigurations.\"${config.home.hostname}\".system";
-    x = "nix develop ${nixConfigDirectory}/.\#node";
+    x = "nix develop ${nixConfigDirectory}";
     drs = "darwin-rebuild switch --flake ${nixConfigDirectory}";
     nd = "nix develop";
     nb = "nix build";

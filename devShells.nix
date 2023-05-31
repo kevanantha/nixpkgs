@@ -102,8 +102,8 @@ rec {
       (p.pnpm.override {
         version = "8.5.0";
         src = pkgs.fetchurl {
-          url = "https://registry.npmjs.org/pnpm/-/pnpm-8.5.0.tgz";
-          sha512 = "eGki4/2GIMFivfbKHIDo1mP1vFvMi39Mh9TxcBHZcFWj09zGzCYD04e05j/60sUkJ1yyzSAszkchBxp9PSL7Ew==";
+          url = "https://registry.npmjs.org/pnpm/-/pnpm-8.6.0.tgz";
+          sha512 = "uMaWGXlvG+m5NIJaR4JEEenChbg+1AP4zVpqs4PEcZg4uH+lXMTd/X/lirKZA+TC0w0d+++y3btINcwyKsuwAA==";
         };
       })
     ];
@@ -113,6 +113,9 @@ rec {
       zsh
     '';
   };
+
+  # `nix develop x`.
+  default = node;
 
   # `nix develop my#node14` 
   node14 = mkNodejs {

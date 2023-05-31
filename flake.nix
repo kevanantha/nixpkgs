@@ -12,7 +12,8 @@
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.utils.follows = "flake-utils";
+    # it causes warning "input 'home-manager' has an override for a non-existent input 'utils'"
+    # home-manager.inputs.utils.follows = "flake-utils";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     # Flake utilities
@@ -182,13 +183,13 @@
       devShells = let pkgs = self.legacyPackages.${system}; in
         import ./devShells.nix { inherit pkgs; inherit (inputs.nixpkgs-unstable) lib; } // {
 
-          # `nix develop x`.
-          default = pkgs.mkShell {
-            name = "kevan_devshells_default";
-            # shellHook = '''' + checks.pre-commit-check.shellHook;
-            # buildInputs = checks.pre-commit-check.buildInputs or [ ];
-            # packages = checks.pre-commit-check.packages or [ ];
-          };
+          # `nix develop x`. 
+          # default = pkgs.mkShell {
+          #   name = "kevan_devshells_default";
+          #   # shellHook = '''' + checks.pre-commit-check.shellHook;
+          #   # buildInputs = checks.pre-commit-check.buildInputs or [ ];
+          #   # packages = checks.pre-commit-check.packages or [ ];
+          # };
 
         };
 
