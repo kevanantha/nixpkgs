@@ -34,6 +34,8 @@ in
     # nb = "nix build ${nixConfigDirectory}#darwinConfigurations.\"${config.home.hostname}\".system";
     x = "nix develop ${nixConfigDirectory}";
     drs = "darwin-rebuild switch --flake ${nixConfigDirectory}";
+    # Get from Github Gist
+    getnodeflake = "curl -LJO https://gist.githubusercontent.com/kevanantha/768ec5e8eb24377bd90c522dbf7b1f85/raw/d0bffe2a5c601ebb87e3e24315a250d56a8b215c/flake.nix";
     nd = "nix develop";
     nb = "nix build";
     hm = "home-manager";
