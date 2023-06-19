@@ -44,5 +44,6 @@
     "orbstack" # Replacement for Docker Desktop
     "linear-linear"
     "anki"
+    "gpg-suite"
   ];
 }

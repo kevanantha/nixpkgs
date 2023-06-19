@@ -35,7 +35,7 @@
 
   # Dock and Mission Control
   system.defaults.dock = {
-    autohide = false;
+    autohide = true;
     expose-group-by-app = false;
     mru-spaces = false;
     # tilesize = 128;
