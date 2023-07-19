@@ -19,7 +19,7 @@
     "1password"
     "1password-cli"
     "raycast"
-    "google-chrome"
+    # "google-chrome"
     "google-chrome-canary"
     "cleanshot"
     "topnotch"
@@ -29,11 +29,11 @@
     "openvpn-connect"
     "notion"
     "zed"
-    "readdle-spark"
-    "mimestream"
+    # "readdle-spark"
+    # "mimestream"
     "obsidian"
     "clickup"
-    # "cron"
+    "cron"
     # "podman-desktop"
     "flipper"
     "warp"
@@ -43,7 +43,7 @@
     "steam"
     "orbstack" # Replacement for Docker Desktop
     "linear-linear"
-    "anki"
+    # "anki"
     "gpg-suite"
   ];
 }
