@@ -45,5 +45,6 @@
     "linear-linear"
     # "anki"
     "gpg-suite"
+    "todoist"
   ];
 }
